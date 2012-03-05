@@ -17,18 +17,14 @@
 .container
   .hero-unit
     %h1 Te Agendamos
-    %p En Te Agendamos buscamos ayudarte a no olvidar el cumpleaños de tus amigos y seres queridos, tu aniversario de bodas, el cambio de aceite de tu carro, pagar tus facturas, etc, y además te mostramos quienes te pueden prestar el servicio que necesitas para cada ocasión.
+    %p En Te Agendamos buscamos ayudarte a no olvidar el cumpleaños de tus amigos y seres queridos, tu aniversario de bodas, el cambio de aceite de tu carro, pagar tus facturas, etc, y además te mostramos quienes te pueden prestar el servicio que necesites para cada ocasión.
     %p
-      %a.btn.btn-primary.btn-large Learn more »
-  / Example row of columns
+      %a.btn.btn-primary.btn-success Descargar
   .row
     .span4
-      %h2 Heading
-      %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      %p
-        %a.btn{:href => "#"} View details »
+      != haml(:'contact/_form', :layout => false)
     .span4
-      %h2 Heading
+      %h2 Proveedores
       %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
       %p
         %a.btn{:href => "#"} View details »
@@ -39,4 +35,4 @@
         %a.btn{:href => "#"} View details »
   %hr
     %footer
-      %p © Company 2012
+      %a{:href => "http://www.sietecumbres.com.co", :target => "_blank"} Siete Cumbres SAS

@@ -1,0 +1,17 @@
+.separator
+  %h2.notext.txt-newsletters Servicio Técnico
+  %p Déjanos saber si tienes problemas usando la aplicación o simplemente escribe tus comentarios
+  %form#contactenos.subscribe{:action => "/contact", :method => "post"}
+    .cl
+    %p
+      #response-message.hidden
+      #loading.hidden
+    %p
+      %input.span3{:type => "text", :placeholder => "Nombre Completo", :name => "name"}
+    %p
+      %input#email-field.span3{:type => "text", :placeholder => "Correo Electrónico", :name => "email"}/
+    %p
+      %textarea.textarea.contact-area.span3{:placeholder => "Comentario", :name => "comment"}
+    %p
+      %input#send-message.button.btn.btn-primary.btn-success{:type => "submit", :value => "ENVIAR"}/
+    .cl
