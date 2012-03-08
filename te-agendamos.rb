@@ -6,8 +6,12 @@ Bundler.require
 
 $:.push(File.dirname File.expand_path __FILE__)
 
-%w(users.rb providers.rb).each do |r|
-  require "lib/models/#{r}"
+%w(user.rb provider.rb).each do |model|
+  require "lib/models/#{model}"
+end
+
+%w(users.rb providers.rb).each do |route|
+  require "lib/routes/#{route}"
 end
 
 #Configuration

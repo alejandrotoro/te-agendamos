@@ -1,0 +1,9 @@
+%form{:action => '/login', :method => 'post'}
+  %fieldset
+    %p
+      %input.span3{:type => "text", :placeholder => "Correo Electrónico", :name => "email"}
+    %p
+      %input.span3{:type => "password", :placeholder => "Contraseña", :name => "password"}
+    %p
+      %input.btn.btn-success{:type => 'submit', :value => 'Iniciar Sesión'}
+      %a.btn.btn-success{:href => "/users/new"} Registrate

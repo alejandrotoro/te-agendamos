@@ -1,0 +1,21 @@
+.separator
+  %h2.notext.txt-newsletters Registro
+  %p Ingresa los siguientes datos
+  %form#register.subscribe{:action => "/users/register", :method => "post"}
+    .cl
+    %p
+      #response-message.hidden
+      #loading.hidden
+    %p
+      %input.span3{:type => "text", :placeholder => "Nombres", :name => "name"}
+    %p
+      %input.span3{:type => "text", :placeholder => "Apellidos", :name => "last_name"}
+    %p
+      %input.span3{:type => "text", :placeholder => "Correo Electrónico", :name => "email"}
+    %p
+      %input.span3{:type => "password", :placeholder => "Contraseña", :name => "password"}
+    %p
+      %input.span3{:type => "password", :placeholder => "Confirma la contraseña", :name => "password_confirm"}
+    %p
+      %input.btn.btn-success{:type => "submit", :value => "Enviar"}/
+    .cl
