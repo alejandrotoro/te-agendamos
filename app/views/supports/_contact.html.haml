@@ -1,0 +1,15 @@
+.separator
+  %h2.notext.txt-newsletters Servicio Técnico
+  %p Déjanos saber si tienes problemas usando la aplicación o simplemente escribe tus comentarios
+  %p
+    #response-message.hidden
+    #loading.hidden
+  %p
+    %input#name-field.span3{:type => "text", :placeholder => "Nombre Completo", :name => "name"}
+  %p
+    %input#email-field.span3{:type => "text", :placeholder => "Correo Electrónico", :name => "email"}/
+  %p
+    %textarea#comment-field.span3{:placeholder => "Comentario", :name => "comment"}
+  %p
+    %a#send-message.btn.btn-success{:href => "/support"} Enviar
+  .cl

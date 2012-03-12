@@ -1,4 +1,11 @@
 TeAgendamos::Application.routes.draw do
+  resources :products
+
+  resources :providers
+
+  match 'support' => 'supports#contact'
+  resources :categories
+
   authenticated :user do
     root :to => 'home#index'
   end

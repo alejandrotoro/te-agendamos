@@ -10,6 +10,7 @@
  *
  *= require_self
  *= require_tree .
+ *= require jquery.jgrowl
 */
 
 .content {
@@ -22,4 +23,26 @@
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
   box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
+.navbar-inner {
+  background-image: -webkit-linear-gradient(top, #5BB75B, #387038) !important;
+  background-image: -o-linear-gradient(top, #5BB75B, #387038) !important;
+  background-image: linear-gradient(top, #5BB75B, #387038) !important;
+}
+
+.navbar .nav > li > a {
+  color: #FFFFFF !important;
+}
+
+.navbar .nav .active > a, .navbar .nav .active > a:hover {
+  background-color: #387038 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #387038 !important;
+}
+
+.brand:hover {
+ background-color: #387038 !important;
 }
