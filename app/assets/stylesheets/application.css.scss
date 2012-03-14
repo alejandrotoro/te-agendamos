@@ -11,6 +11,7 @@
  *= require_self
  *= require_tree .
  *= require jquery.jgrowl
+ *= require facebox
 */
 
 .content {
@@ -45,4 +46,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .brand:hover {
  background-color: #387038 !important;
+}
+
+a:visited {
+  color: #FFFFFF !important;
 }

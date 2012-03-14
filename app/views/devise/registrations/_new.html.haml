@@ -1,0 +1,12 @@
+= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+  = devise_error_messages!
+  %p
+    = f.text_field :name, :class => "span3", :placeholder => "Nombre Completo"
+  %p
+    = f.email_field :email, :class => "span3", :placeholder => "Correo Electrónico"
+  %p
+    = f.password_field :password, :class => "span3", :placeholder => "Contraseña"
+  %p
+    = f.password_field :password_confirmation, :class => "span3", :placeholder => "Confirma la Contraseña"
+  %p= f.submit "Registro", :class => "btn btn-success"
+= render "devise/links"

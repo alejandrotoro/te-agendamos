@@ -15,8 +15,10 @@
     .span4
       %h2 Usuarios
       %p Si no quieres perder otra ocasión especial o deseas mantener tu agenda al día con lo que tienes que hacer, Te Agendamos es tu solución, lo único que debes hacer es registrarte y empezar a llenar tu agenda.
-      %p Si eres usuario registrado ingresa tu email y contraseña:
-      /!= haml(:'users/login', :layout => false)
+      %p
+        %a.btn.btn-success{:href => "/login_and_register", :rel => "facebox"} Login | Registro 
+        /%a.btn.btn-success{:href => "/login"} Login
+        /%a.btn.btn-success{:href => "/register"} Registro
   %hr
     %footer
       %a{:href => "http://www.sietecumbres.com.co", :target => "_blank"} Siete Cumbres SAS
