@@ -1,6 +1,18 @@
+#fb-root
+:javascript
+  (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=224132740964308";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+%p.fb-login-text Puedes iniciar sesión con Facebook
+.fb-login-button{"data-max-rows" => "1", "data-show-faces" => "false", "data-width" => "200"}
+%p o, si ya tienes una cuenta en Te Agendamos, usa tu correo y contraseña
 = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
   %p
-    = f.email_field :email, :class => "span3", :placeholder => "Nombre Completo"
+    = f.email_field :email, :class => "span3", :placeholder => "Correo Electrónico"
   %p
     = f.password_field :password, :class => "span3", :placeholder => "Contraseña"
   - if devise_mapping.rememberable?
@@ -8,4 +20,5 @@
       = f.check_box :remember_me
       = f.label "Recordarme"
   %div= f.submit "Sign in", :class => "btn btn-success"
-= render "devise/links"
+- if devise_mapping.recoverable? && controller_name != 'passwords'
+  = link_to "Olvidaste tu contraseña?", new_password_path(resource_name)

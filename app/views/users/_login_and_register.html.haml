@@ -1,10 +1,9 @@
 .login-register-container
   .row
-    .span4
+    .span3.login
       %h2 Inicio de sesión
-      %p Si eres usuario registrado, ingresa tu correo y contraseña para iniciar sesión.
       = render "devise/sessions/new"
-    .span4
+    .span3.register
       %h2 Registro
-      %p Si aún no haces parte de Te Agendamos, te invitamos a que te registres.
+      %p.register-text Si aún no haces parte de Te Agendamos, te invitamos a que te registres.
       = render "devise/registrations/new"

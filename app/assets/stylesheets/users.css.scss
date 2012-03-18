@@ -3,5 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .login-register-container {
-  width: 800px;
+  width: 610px;
+  div.login {
+    border-right: 2px solid #51A351;
+    height: 360px;
+    padding-right: 30px;
+  }
 }
