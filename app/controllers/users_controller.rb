@@ -15,5 +15,9 @@ class UsersController < ApplicationController
   def register
     render :partial => "devise/registrations/new", :locals => { :user => User }
   end
+  
+  def dashboard
+    @user = current_user
+  end
 
 end
