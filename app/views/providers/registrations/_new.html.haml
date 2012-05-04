@@ -1,0 +1,13 @@
+= form_for(provider_resource, :as => provider_resource_name, :url => provider_registration_path(provider_resource_name)) do |f|
+  = provider_devise_error_messages!
+  %p
+    = f.text_field :name, :class => "span3", :placeholder => "Nombre"
+  %p
+    = f.email_field :email, :class => "span3", :placeholder => "Correo Electrónico"
+  %p
+    = f.password_field :password, :class => "span3", :placeholder => "Contraseña"
+  %p
+    = f.password_field :password_confirmation, :class => "span3", :placeholder => "Confirma la Contraseña"
+  %p= f.submit "Registro", :class => "btn btn-success"
+- if provider_devise_mapping.recoverable? && controller_name != 'passwords'
+  = link_to "Olvidaste tu contraseña?", new_provider_password_path(provider_resource_name)

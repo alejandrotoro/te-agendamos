@@ -1,0 +1,9 @@
+.login-register-container
+  .row
+    .span3.login
+      %h2 Inicio de sesión
+      = render "providers/sessions/new"
+    .span3.register
+      %h2 Registro
+      %p.register-text Si aún no haces parte de Te Agendamos, te invitamos a que te registres.
+      = render "providers/registrations/new"

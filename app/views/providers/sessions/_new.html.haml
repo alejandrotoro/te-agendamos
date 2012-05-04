@@ -1,0 +1,13 @@
+%p Si tienes una cuenta en Te Agendamos, usa tu correo y contraseña
+= form_for(provider_resource, :as => provider_resource_name, :url => provider_session_path(provider_resource_name)) do |f|
+  %p
+    = f.email_field :email, :class => "span3", :placeholder => "Correo Electrónico"
+  %p
+    = f.password_field :password, :class => "span3", :placeholder => "Contraseña"
+  - if provider_devise_mapping.rememberable?
+    %p
+      = f.check_box :remember_me
+      = f.label "Recordarme"
+  %div= f.submit "Ingresar", :class => "btn btn-success"
+- if provider_devise_mapping.recoverable? && controller_name != 'passwords'
+  = link_to "Olvidaste tu contraseña?", new_provider_password_path(provider_resource_name)

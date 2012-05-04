@@ -7,13 +7,18 @@
         %span.icon-bar
       - if user_signed_in?
         %a.brand{:href => user_root_path} Te Agendamos
-      - else
+      - elsif provider_signed_in?
+        %a.brand{:href => provider_root_path} Te Agendamos
+      - else  
         %a.brand{:href => "/"} Te Agendamos
       .nav-collapse
         %ul.nav
           - if user_signed_in?
             %li.active
               %a{:href => user_root_path} Inicio
+          - elsif user_signed_in?
+            %li.active
+              %a{:href => provider_root_path} Inicio
           -else
             %li.active
               %a{:href => "/"} Inicio
@@ -28,3 +33,8 @@
               = link_to('Editar', edit_user_registration_path)
             %li
               = link_to('Salir', destroy_user_session_path, :method=>'delete')
+          - elsif provider_signed_in?
+            %li
+              = link_to('Editar', edit_provider_registration_path)
+            %li
+              = link_to('Salir', destroy_provider_session_path, :method=>'delete')
