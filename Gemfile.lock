@@ -168,7 +168,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (~> 2.0.2)
   coffee-rails (~> 3.2.1)
-  devise
+  devise (~> 2.0.4)
   haml
   haml-rails
   heroku

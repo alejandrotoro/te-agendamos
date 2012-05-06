@@ -8,7 +8,7 @@ gem 'rails', '3.2.0'
 gem 'pg'
 gem 'haml'
 gem 'haml-rails'
-gem 'devise'
+gem 'devise', "~> 2.0.4"
 
 # Gems used only for assets and not required
 # in production environments by default.
