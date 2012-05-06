@@ -1,0 +1,22 @@
+.container
+  .hero-unit
+    %h1 Te Agendamos
+    %p En Te Agendamos buscamos ayudarte a no olvidar el cumpleaños de tus amigos y seres queridos, tu aniversario de bodas, el cambio de aceite de tu carro, pagar tus facturas, etc, y además te mostramos quienes te pueden prestar el servicio que necesites para cada ocasión.
+    %p
+      %a.btn.btn-primary.btn-success Descargar
+  .row
+    .span4
+      = render "supports/contact"
+    .span4
+      %h2 Proveedores
+      %p En Te Agendamos tenemos un espacio para tu empresa, puedes darla a conocer aquí.
+      %p
+        %a.btn.btn-success{:href => "/providers/login_and_register", :rel => "facebox"} Login | Registro
+    .span4
+      %h2 Usuarios
+      %p Si no quieres perder otra ocasión especial o deseas mantener tu agenda al día con lo que tienes que hacer, Te Agendamos es tu solución, lo único que debes hacer es registrarte y empezar a llenar tu agenda.
+      %p
+        %a.btn.btn-success{:href => "/login_and_register", :rel => "facebox"} Login | Registro
+  %hr
+    %footer
+      %a{:href => "http://www.sietecumbres.com.co", :target => "_blank"} Siete Cumbres SAS

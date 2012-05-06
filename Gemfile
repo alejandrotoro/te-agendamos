@@ -7,8 +7,8 @@ gem 'rails', '3.2.0'
 
 gem 'pg'
 gem 'haml'
+gem 'haml-rails'
 gem 'devise'
-
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -20,6 +20,13 @@ group :assets do
   # gem 'therubyracer'
 
   gem 'uglifier', '>= 1.0.3'
+  
+  # twitter bootstrap
+  gem "bootstrap-sass", "~> 2.0.2"
+end
+
+group :development do
+  gem 'heroku'
 end
 
 gem 'jquery-rails'
@@ -31,10 +38,14 @@ gem 'jquery-rails'
 # gem 'jbuilder'
 
 # Use unicorn as the web server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+# Omniauth
+gem "omniauth-facebook"
+gem 'omniauth-openid', :git => 'git://github.com/intridea/omniauth-openid.git'
