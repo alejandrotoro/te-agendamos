@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+  devise :omniauthable, :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 
   validates :email, :presence => true
   validates :email, :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i}
@@ -20,11 +20,16 @@ class User < ActiveRecord::Base
   end
 
   def self.find_for_open_id(access_token, signed_in_resource=nil)
-    data = access_token['user_info']
-    if user = User.find_by_email(data["email"])
+    data = access_token.info
+
+    logger.info data.to_yaml
+
+    if user = User.where(:email => data["email"]).first
+      user.name = data["name"]
+      user.save
       user
-    else # Create a user with a stub password.
-      User.create!(:email => data["email"], :password => Devise.friendly_token[0,20])
+    else
+      User.create!(:email => data["email"], :name => data["name"])
     end
   end
 end
