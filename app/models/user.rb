@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
-  devise :omniauthable, :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :omniauthable, :database_authenticatable, :registerable
 
   validates :email, :presence => true
   validates :email, :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i}
