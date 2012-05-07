@@ -12,4 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require_tree .
+//= require jquery.jgrowl_minimized.js
+//= require facebox.js
+
+jQuery(document).ready(function($) {
+  $('a[rel*=facebox]').facebox()
+})
