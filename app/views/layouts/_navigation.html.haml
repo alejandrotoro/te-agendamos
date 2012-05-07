@@ -5,16 +5,27 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
+      - if user_signed_in?
+        %a.brand{:href => user_root_path} Te Agendamos
+      - else  
         %a.brand{:href => "/"} Te Agendamos
       .nav-collapse
         %ul.nav
-          %li.active
-            %a{:href => "/"} Inicio
-          %li
-            %a{:href => "/#contact"} Contacto
+          - if user_signed_in?
+            %li.active
+              %a{:href => user_root_path} Inicio
+          -else
+            %li.active
+              %a{:href => "/"} Inicio
+            %li
+              %a{:href => "/#contact"} Contacto
           %li
             %a{:href => "http://www.sietecumbres.com.co", :target => "_blank"} Conócenos
       .nav-collapse-right
         %ul.nav
-          %li= link_to "Facebook", user_omniauth_authorize_path(:facebook)
-          %li= link_to "Google", user_omniauth_authorize_path(:google)
+          - if user_signed_in?
+            %li
+              = link_to('Salir', destroy_user_session_path, :method=>'delete')
+            - if current_user.is_provider?
+              %li
+                = link_to('Editar', edit_user_registration_path)

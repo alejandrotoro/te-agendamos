@@ -8,6 +8,9 @@
     = f.password_field :password, :class => "span3", :placeholder => "Contraseña"
   %p
     = f.password_field :password_confirmation, :class => "span3", :placeholder => "Confirma la Contraseña"
+  %p Eres proveedor?
+  %p
+    = f.check_box :is_provider
   %p= f.submit "Registro", :class => "btn btn-success"
 - if devise_mapping.recoverable? && controller_name != 'passwords'
   = link_to "Olvidaste tu contraseña?", new_password_path(resource_name)
