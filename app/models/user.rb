@@ -10,11 +10,16 @@ class User < ActiveRecord::Base
   #Be sure to create the users with the info you need.
   #Note that facebook and gmail will give you different info from users
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
-    data = access_token['extra']['user_hash']
-    if user = User.find_by_email(data["email"])
+    data = access_token.info
+
+    logger.info data.to_yaml
+    
+    if user = User.where(:email => data["email"]).first
+      user.name = data["name"]
+      user.save
       user
     else # Create a user with a stub password.
-      User.create!(:email => data["email"], :password => Devise.friendly_token[0,20])
+      User.create!(:email => data["email"], :name => data["name"])
     end
   end
 
