@@ -1,6 +1,10 @@
 %p Puedes iniciar sesión usando tu cuenta de Google
-= link_to "Google", user_omniauth_authorize_path(:google)
-= link_to "Facebook", user_omniauth_authorize_path(:facebook)
+%a.btn.btn-grey{ :href => "#{user_omniauth_authorize_path(:google)}"}
+  %i.icon-google
+  Google
+%a.btn.btn-grey{ :href => "#{user_omniauth_authorize_path(:facebook)}"}
+  %i.icon-facebook
+  Facebook
 %p o, si ya tienes una cuenta en Te Agendamos, usa tu correo y contraseña
 = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
   %p
