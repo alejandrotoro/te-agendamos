@@ -5,6 +5,7 @@ TeAgendamosNew::Application.routes.draw do
   match 'login' => 'users#login'
   match 'register' => 'users#register'
   match 'dashboard' => 'users#dashboard'
+  match '/schedule_tooltip/:id' => 'schedules#schedule_tooltip'
   
   authenticated :provider do
     root :to => 'providers#dashboard', :as => :provider_root
@@ -15,6 +16,7 @@ TeAgendamosNew::Application.routes.draw do
   
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users
+  resources :schedules
 
   root :to => "home#index"
 end

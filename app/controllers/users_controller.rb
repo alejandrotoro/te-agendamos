@@ -18,6 +18,8 @@ class UsersController < ApplicationController
   
   def dashboard
     @user = current_user
+    @schedules = Schedule.where(:user_id => @user.id).all
+    @date = params[:month] ? Date.parse(params[:month]) : Date.today
   end
 
 end

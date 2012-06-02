@@ -50,3 +50,6 @@ gem 'thin'
 # Omniauth
 gem "omniauth-facebook"
 gem 'omniauth-openid', :git => 'git://github.com/intridea/omniauth-openid.git'
+
+# Calendar
+gem "watu_table_builder", :require => "table_builder", :git => "git://github.com/watu/table_builder.git"

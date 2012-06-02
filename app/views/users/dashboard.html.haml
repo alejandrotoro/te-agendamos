@@ -1,4 +1,11 @@
-%p
-  User: #{@user.name}
-%p
-  Email: #{@user.email if @user.email}
+#calendar
+  %h2#month
+    = h @date.strftime("%B %Y")
+    = calendar_for(@schedules, :year => @date.year, :month => @date.month) do |t|
+      = t.head('Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado')
+      = t.day(:day_method => :date) do |day, schedules|
+        = day.day
+        %ul.schedule-list
+          - schedules.each do |schedule|
+            %li
+              %a.each-schedule{ :href => "/schedule_tooltip/#{schedule.id}", :rel => "facebox" }= schedule.title

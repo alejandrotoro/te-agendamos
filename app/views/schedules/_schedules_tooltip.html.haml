@@ -1,0 +1,8 @@
+%h1
+  = schedule.title
+  %span= "(#{schedule.date.strftime('%Y-%m-%d')})"
+%h3 Categoría
+%p= schedule.category.name
+%h3 Descripción
+%p= schedule.description
+%a.btn.btn-success{:href => "#{edit_schedule_path(schedule.id)}"} Editar evento
