@@ -12,6 +12,7 @@
  *= require_tree .
  *= require jquery.jgrowl
  *= require facebox
+ *= require jquery-ui-1.8.20.custom
 */
 
 .content {
@@ -80,4 +81,29 @@ a.btn-grey:visited {
 
 .nav-collapse-right {
   float: right;
+}
+
+.hr-modals {
+  margin: 15px 0;
+  border: 0;
+  border-top: 1px solid #EEE;
+  border-bottom: 2px solid #387038;
+}
+
+#ui-datepicker-div {
+  z-index: 9999999 !important;
+}
+
+
+.ui-datepicker {
+  z-index: 9999999 !important;
+}
+
+.modal-header {
+  background-color: #387038;
+  margin-bottom: 20px;
+  
+  h1 {
+    color: #FFFFFF !important;
+  }
 }

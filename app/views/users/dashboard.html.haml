@@ -10,4 +10,4 @@
         %ul.schedule-list
           - schedules.each do |schedule|
             %li
-              %a.each-schedule{ :href => "/schedule_tooltip/#{schedule.id}", :rel => "facebox" }= schedule.title
+              %a.each-schedule{ :href => "/edit/#{schedule.id}", :rel => "facebox" }= schedule.title

@@ -1,0 +1,29 @@
+.modal-header
+  %h1 Edita este evento
+= form_for(schedule, :html => {:class => 'form-horizontal'}) do |f|
+  %fieldset
+    .control-group
+      %label.control-label{:for => "schedule_title"} Título
+      .controls
+        = f.text_field :title
+    .control-group
+      %label.control-label{:for => "schedule_description"} Descripción
+      .controls
+        = f.text_area :description, :cols => 20, :rows => 5
+    .control-group
+      %label.control-label{:for => "schedule_date"} Fecha y hora del evento
+      .controls
+        = f.text_field :date , :class => 'datepicker input-small'
+        = f.text_field :hour , :class => 'datepicker input-small'
+    .control-group
+      %label.control-label{:for => "schedule_reminder_date"} Fecha y hora del recordatorio
+      .controls
+        = f.text_field :reminder_date, :class => 'datepicker input-small'
+        = f.text_field :reminder_hour, :class => 'datepicker input-small'
+    .control-group
+      %label.control-label{:for => "schedule_reminder_date"} Fecha de recordatorio
+      .controls
+        = f.select :category_id, @categories.collect{|c| [c.name, c.id]}, { :include_blank => 'Selecciona una categoría' }
+    .form-actions
+      = f.submit "Editar evento", :class => 'btn btn-success'
+      = link_to "Cancelar", :back, :class => 'btn btn-success'

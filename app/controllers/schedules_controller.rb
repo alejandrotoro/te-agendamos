@@ -1,8 +1,9 @@
 class SchedulesController < ApplicationController
   
-  def schedule_tooltip
+  def edit
+    @categories = Category.all
     schedule = Schedule.find(params[:id])
-    render :partial => "schedules/schedules_tooltip", :locals => { :schedule => schedule }
+    render :partial => "schedules/edit", :locals => { :schedule => schedule }
   end
   
 end

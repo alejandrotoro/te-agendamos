@@ -16,7 +16,14 @@
 //= require_tree .
 //= require jquery.jgrowl_minimized.js
 //= require facebox.js
+//= require jquery-ui-1.8.20.custom.min.js
+//= require jquery-ui-timepicker-addon.js
 
 jQuery(document).ready(function($) {
   $('a[rel*=facebox]').facebox()
+  $('#facebox .datepicker').datepicker()
+  $('#facebox .timepicker').timepicker({
+  	hourGrid: 4,
+  	minuteGrid: 10
+  })
 })
