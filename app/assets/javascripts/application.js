@@ -22,6 +22,10 @@
 jQuery(document).ready(function($) {
   $('a[rel*=facebox]').facebox();
   $('.datetimepicker').live('click', function () {
-    $(this).removeClass('hasDatepicker').datetimepicker({dateFormat: "yy-mm-dd"}).focus();
+    $(this).removeClass('hasDatepicker').datetimepicker({
+      dateFormat: "yy-mm-dd",
+      hourGrid: 4,
+      minuteGrid: 10
+    }).focus();
   });
 })
