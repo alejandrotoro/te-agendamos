@@ -1,6 +1,6 @@
 .modal-header
   %h1 Crear evento
-= form_tag(schedules_path, :method => 'post', :class => 'form-horizontal') do |f|
+= form_tag(schedules_path, :method => 'post', :class => 'form-horizontal', :id => 'new-schedule') do |f|
   %fieldset
     .control-group
       %label.control-label{:for => "schedule_title"} Título
@@ -13,11 +13,11 @@
     .control-group
       %label.control-label{:for => "schedule_date"} Fecha y hora del evento
       .controls
-        = text_field_tag 'schedule[date]', nil, :class => 'datetimepicker'
+        = text_field_tag 'schedule[date]', '', :class => 'datetimepicker'
     .control-group
       %label.control-label{:for => "schedule_reminder_date"} Fecha y hora del recordatorio
       .controls
-        = text_field_tag 'schedule[reminder_date]', nil, :class => 'datetimepicker'
+        = text_field_tag 'schedule[reminder_date]', nil, :class => 'datetimepicker-reminder', :disabled => true
     .control-group
       %label.control-label{:for => "schedule_category_id"} Categoría
       .controls

@@ -4,11 +4,15 @@
     = link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m-01")
     = h @date.strftime("%B %Y")
     = link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m-01")
-    = calendar_for(@schedules, :year => @date.year, :month => @date.month) do |t|
-      = t.head('Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado')
-      = t.day(:day_method => :date) do |day, schedules|
-        = day.day
-        %ul.schedule-list
-          - schedules.each do |schedule|
-            %li
-              %a.each-schedule{ :href => "/edit/#{schedule.id}", :rel => "facebox" }= schedule.title
+  = calendar_for(@schedules, :year => @date.year, :month => @date.month) do |t|
+    = t.head('Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado')
+    = t.day(:day_method => :date) do |day, schedules|
+      .each-day{ :data => { :date => day } }
+        .day
+          %p= day.day
+        .events
+          %ul.schedule-list
+            - schedules.each do |schedule|
+              %li
+                %a.each-schedule{ :href => "/edit/#{schedule.id}", :rel => "facebox" }
+                  %span.label.label-info= schedule.title

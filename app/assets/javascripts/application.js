@@ -22,10 +22,22 @@
 jQuery(document).ready(function($) {
   $('a[rel*=facebox]').facebox();
   $('.datetimepicker').live('click', function () {
+    $('#schedule_reminder_date').attr('disabled', false)
     $(this).removeClass('hasDatepicker').datetimepicker({
       dateFormat: "yy-mm-dd",
-      hourGrid: 4,
-      minuteGrid: 10
+      addSliderAccess: true,
+      sliderAccessArgs: { touchonly: false },
+      minDate: new Date()
+    }).focus();
+  });
+  $('.datetimepicker-reminder').live('click', function () {
+    date = $('#schedule_date').val()
+    $(this).removeClass('hasDatepicker').datetimepicker({
+      dateFormat: "yy-mm-dd",
+      addSliderAccess: true,
+      sliderAccessArgs: { touchonly: false },
+      minDate: new Date(),
+      maxDate: new Date(date)
     }).focus();
   });
 })
