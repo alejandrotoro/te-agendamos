@@ -13,13 +13,11 @@
     .control-group
       %label.control-label{:for => "schedule_date"} Fecha y hora del evento
       .controls
-        = f.text_field :date , :class => 'datepicker input-small'
-        = f.text_field :hour , :class => 'datepicker input-small'
+        = f.text_field :date , :class => 'datetimepicker'
     .control-group
       %label.control-label{:for => "schedule_reminder_date"} Fecha y hora del recordatorio
       .controls
-        = f.text_field :reminder_date, :class => 'datepicker input-small'
-        = f.text_field :reminder_hour, :class => 'datepicker input-small'
+        = f.text_field :reminder_date, :class => 'datetimepicker'
     .control-group
       %label.control-label{:for => "schedule_reminder_date"} Fecha de recordatorio
       .controls

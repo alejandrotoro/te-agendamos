@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120604045059) do
+ActiveRecord::Schema.define(:version => 20120608174949) do
 
   create_table "categories", :force => true do |t|
     t.string "name"
@@ -19,15 +19,13 @@ ActiveRecord::Schema.define(:version => 20120604045059) do
   end
 
   create_table "schedules", :force => true do |t|
-    t.string  "title"
-    t.integer "user_id"
-    t.date    "date"
-    t.date    "reminder_date"
-    t.string  "periodicity",   :default => "None"
-    t.string  "description"
-    t.integer "category_id"
-    t.time    "hour"
-    t.time    "reminder_hour"
+    t.string   "title"
+    t.integer  "user_id"
+    t.datetime "date"
+    t.datetime "reminder_date"
+    t.string   "periodicity",   :default => "None"
+    t.string   "description"
+    t.integer  "category_id"
   end
 
   create_table "users", :force => true do |t|
