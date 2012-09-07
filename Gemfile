@@ -53,3 +53,6 @@ gem 'omniauth-openid', :git => 'git://github.com/intridea/omniauth-openid.git'
 
 # Calendar
 gem "watu_table_builder", :require => "table_builder", :git => "git://github.com/watu/table_builder.git"
+
+# Scheduler
+gem "rufus-scheduler", :git => "git://github.com/jmettraux/rufus-scheduler.git"

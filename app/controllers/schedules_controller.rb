@@ -10,6 +10,16 @@ class SchedulesController < ApplicationController
 
     respond_to do |format|
       if @schedule.save
+        
+        scheduler = Rufus::Scheduler.start_new
+        # Get the difference between reminder date and now
+        # The timezones are differente it must be fixed
+        # time is in minutes, the 300 is the difference between timezones
+        time = ((params[:schedule][:reminder_date].to_datetime - DateTime.now) * 24 * 60 + 300).to_i
+        scheduler.in "#{time}m" do
+          ContactMailer.reminder(current_user.email, params[:schedule][:title], nil).deliver
+        end
+        
         format.html { redirect_to dashboard_path, notice: 'El evento fue creado satisfactoriamente.' }
       else
         flash[:notice] = @schedule.errors.to_a.join(",").gsub(",", "<br\>")
