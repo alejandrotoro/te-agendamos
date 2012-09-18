@@ -15,16 +15,17 @@ class SchedulesController < ApplicationController
     respond_to do |format|
       if @schedule.save
         
-        scheduler = Rufus::Scheduler.start_new
-        # Get the difference between reminder date and now
-        # The timezones are differente it must be fixed
-        # time is in minutes, the 300 is the difference between timezones
-        time = ((@schedule.reminder_date.to_datetime - DateTime.now) * 24 * 60).to_i
+        puts "Time.zone-------------->#{Time.zone}"
+        puts "reminder_date-------------->#{@schedule.reminder_date}"
+        puts "reminder_date-------------->#{@schedule.reminder_date.to_datetime}"
+        
+        #time = ((@schedule.reminder_date.to_datetime - DateTime.now) * 24 * 60).to_i
+        #scheduler = Rufus::Scheduler.start_new
         #scheduler.in "#{time}m" do
         #  ContactMailer.reminder(current_user.email, params[:schedule][:title], nil).deliver
         #end
         
-        ContactMailer.delay({:run_at => @schedule.reminder_date.to_datetime}).reminder(current_user.email, @schedule.title, nil)
+        ContactMailer.delay({:run_at => @schedule.reminder_date.to_datetime.to_time_in_current_zone}).reminder(current_user.email, @schedule.title, nil)
         
         format.html { redirect_to dashboard_path, notice: 'El evento fue creado satisfactoriamente.' }
       else
