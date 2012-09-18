@@ -7,6 +7,7 @@ TeAgendamosNew::Application.routes.draw do
   match 'dashboard' => 'users#dashboard'
   match '/edit/:id' => 'schedules#edit'
   match '/new_schedule' => 'schedules#new'
+  match '/edit_user' => 'users#edit'
   
   authenticated :provider do
     root :to => 'providers#dashboard', :as => :provider_root

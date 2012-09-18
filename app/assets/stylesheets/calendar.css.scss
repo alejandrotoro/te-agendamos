@@ -1,3 +1,20 @@
+#calendar {
+
+  .new-schedule {
+    float: left
+  }
+  
+  .time_zone_warning {
+    color: #F89406;
+    float: left;
+    font-size: 20px;
+    font-weight: bolder;
+    margin-left: 2%;
+    margin-top: 5px;
+  }
+  
+}
+
 #calendar table {
   border-collapse: collapse;
   width: 100%;
@@ -38,10 +55,12 @@
 }
 
 #calendar #month {
+  float: left;
   margin: 0;
   padding-top: 10px;
   padding-bottom: 10px;
   text-align: center;
+  width: 100%;
 }
 
 #calendar #month a, #calendar #month a:hover {

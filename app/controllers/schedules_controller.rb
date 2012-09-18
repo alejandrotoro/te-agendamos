@@ -5,6 +5,10 @@ class SchedulesController < ApplicationController
     render :partial => "schedules/new"
   end
   
+  def send_reminder(email, event, html)
+    ContactMailer.reminder(email, event, html).deliver
+  end
+  
   def create
     @schedule = Schedule.new(params[:schedule])
 
@@ -15,10 +19,12 @@ class SchedulesController < ApplicationController
         # Get the difference between reminder date and now
         # The timezones are differente it must be fixed
         # time is in minutes, the 300 is the difference between timezones
-        time = ((params[:schedule][:reminder_date].to_datetime - DateTime.now) * 24 * 60 + 300).to_i
-        scheduler.in "#{time}m" do
-          ContactMailer.reminder(current_user.email, params[:schedule][:title], nil).deliver
-        end
+        time = ((@schedule.reminder_date.to_datetime - DateTime.now) * 24 * 60).to_i
+        #scheduler.in "#{time}m" do
+        #  ContactMailer.reminder(current_user.email, params[:schedule][:title], nil).deliver
+        #end
+        
+        ContactMailer.delay({:run_at => @schedule.reminder_date.to_datetime}).reminder(current_user.email, @schedule.title, nil)
         
         format.html { redirect_to dashboard_path, notice: 'El evento fue creado satisfactoriamente.' }
       else

@@ -25,6 +25,8 @@
         %ul.nav
           - if user_signed_in?
             %li
+              %a{ :href => "/edit_user", :rel => "facebox" } Editar
+            %li
               = link_to('Salir', destroy_user_session_path, :method=>'delete')
             - if current_user.is_provider?
               %li
