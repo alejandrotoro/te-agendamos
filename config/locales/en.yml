@@ -1,5 +1,50 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  hello: "Hello world"
+  defaults:
+    create_event: Create event
+  date:
+    #abrebiated days
+    sun_a: sun
+    mon_a: mon
+    tue_a: tue
+    web_a: wed
+    thu_a: thu
+    fri_a: fri
+    sat_a: sat
+    #abrebiated months
+    jan_a: jan
+    feb_a: feb
+    mar_a: mar
+    apr_a: apr
+    may_a: may
+    jun_a: jun
+    jul_a: jul
+    aug_a: aug
+    sep_a: sep
+    oct_a: oct
+    nov_a: nov
+    dec_a: dec
+    #days
+    sunday: Sunday
+    monday: Monday
+    tuesday: Tuesday
+    wednesday: Wednesday
+    thursday: Thursday
+    friday: Friday
+    saturday: Saturday
+    #months
+    january: January
+    february: February
+    march: March
+    april: April
+    may: May
+    june: June
+    july: July
+    august: August
+    september: September
+    october: October
+    november: November
+    december: December
+    
+    formats:
+      month_year: '%B %Y'
+      long: '%A, %d of %B of %Y'

@@ -1,0 +1,50 @@
+es:
+  defaults:
+    create_event: Crear evento
+  date:
+    #abrebiated days
+    sun_a: dom
+    mon_a: lun
+    tue_a: mar
+    web_a: mie
+    thu_a: jue
+    fri_a: vie
+    sat_a: sab
+    #abrebiated months
+    jan_a: ene
+    feb_a: feb
+    mar_a: mar
+    apr_a: abr
+    may_a: may
+    jun_a: jun
+    jul_a: jul
+    aug_a: ago
+    sep_a: sep
+    oct_a: oct
+    nov_a: nov
+    dec_a: dic
+    #days
+    sunday: Domingo
+    monday: Lunes
+    tuesday: Martes
+    wednesday: Miércoles
+    thursday: Jueves
+    friday: Viernes
+    saturday: Sábado
+    #months
+    january: Enero
+    february: Febrero
+    march: Marzo
+    april: Abril
+    may: Mayo
+    june: Junio
+    july: Julio
+    august: Agosto
+    september: Septiembre
+    october: Octubre
+    november: Noviembre
+    december: Diciembre
+    
+    formats:
+      month_year: '%B %Y'
+      long: '%A, %d de %B de %Y'

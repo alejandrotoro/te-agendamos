@@ -8,11 +8,11 @@ class ContactMailer < ActionMailer::Base
     )
   end
   
-  def reminder(to, event, html)
+  def reminder(to, event, date, html)
     mail(
       :to => to,
       :subject => "Recordatorio para tu evento #{event}",
-      :body => "Este es un recordatorio para el evento #{event}",
+      :body => "Este es un recordatorio para el evento #{event} que se realizara el #{l date, :format => :long }",
       :from => "contacto@sietecumbres.com.co"
     )
   end
