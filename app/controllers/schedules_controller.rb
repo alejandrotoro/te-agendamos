@@ -16,10 +16,13 @@ class SchedulesController < ApplicationController
       if @schedule.save
         
         time = ((@schedule.reminder_date.to_datetime - DateTime.now) * 24 * 60).to_i
-        scheduler = Rufus::Scheduler.start_new
-        scheduler.in "#{time}m" do
-          ContactMailer.reminder(current_user.email, @schedule.title, @schedule.date, nil).deliver
-        end
+        
+        #scheduler = Rufus::Scheduler.start_new
+        #scheduler.in "#{time}m" do
+        #  ContactMailer.reminder(current_user.email, @schedule.title, @schedule.date, nil).deliver
+        #end
+        
+        ContactMailer.delay({:run_at => @schedule.reminder_date.to_datetime}).reminder(current_user.email, @schedule.title, @schedule.date, nil)
         
         format.html { redirect_to dashboard_path, notice: 'El evento fue creado satisfactoriamente.' }
       else

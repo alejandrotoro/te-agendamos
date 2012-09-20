@@ -56,3 +56,4 @@ gem "watu_table_builder", :require => "table_builder", :git => "git://github.com
 
 # Scheduler
 gem "rufus-scheduler", :git => "git://github.com/jmettraux/rufus-scheduler.git"
+gem 'delayed_job_active_record'
